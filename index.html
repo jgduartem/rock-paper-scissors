@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		// Opcion de la computadora
+		function computerPlay(){
+			const choices=["rock", "paper", "scissor"]
+			calc=Math.floor(Math.random()*choices.length);
+			computerChoice=choices[calc];
+			return computerChoice;
+		}
+
+		// Opcion del usuario
+		function playerSelection(){
+			let playerChoice=prompt("Rock, paper, scissor");
+			playerChoice=playerChoice.toLowerCase();
+			return playerChoice;
+		}
+		
+		
+		//Ronda de juego
+		function playRound(playerSelection, computerSelection){
+		
+		
+
+			switch(playerSelection=="rock" || playerSelection=="paper" || playerSelection=="scissor"){
+				case (playerSelection=="rock" && computerSelection=="rock"):
+				console.log("You choice: " + playerSelection + "\n Pc choice: " + computerSelection);
+				console.log("Draw");
+				break;
+
+				case (playerSelection=="rock" && computerSelection=="paper"):
+				console.log("You choice: " + playerSelection + "\n Pc choice: " + computerSelection);
+				console.log("You Lose! Paper beats Rock");
+				pcwinner=pcwinner+1
+				break;
+
+				case (playerSelection=="rock" && computerSelection=="scissor"):
+				console.log("You choice: " + playerSelection + "\n Pc choice: " + computerSelection);
+				console.log("You Win! Rock beats Scissor")
+				mywinner=mywinner+1;
+				
+				break;
+
+				case (playerSelection=="paper" && computerSelection=="paper"):
+				console.log("You choice: " + playerSelection + "\n Pc choice: " + computerSelection);
+				console.log("Draw");
+				break;
+
+				case (playerSelection=="paper" && computerSelection=="rock"):
+				console.log("You choice: " + playerSelection + "\n Pc choice: " + computerSelection);
+				console.log("You Win! Paper beats Rock");
+				mywinner=mywinner+1;
+			
+				break;
+
+				case (playerSelection=="paper" && computerSelection=="scissor"):
+				console.log("You choice: " + playerSelection + "\n Pc choice: " + computerSelection);
+				console.log("You Lose! Scissor beats Paper");
+				pcwinner=pcwinner+1;
+				break;
+
+				case (playerSelection=="scissor" && computerSelection=="scissor"):
+				console.log("You choice: " + playerSelection + "\n Pc choice: " + computerSelection);
+				console.log("Draw");
+				break;
+
+				case (playerSelection=="scissor" && computerSelection=="paper"):
+				console.log("You choice: " + playerSelection + "\n Pc choice: " + computerSelection);
+				console.log("You Win! Scissor beats Paper");
+				mywinner=mywinner+1;
+				
+				break;
+
+				case (playerSelection=="scissor" && computerSelection=="rock"):
+				console.log("You choice: " + playerSelection + "\n Pc choice: " + computerSelection);
+				console.log("You Lose! Rock beats Scissor");
+				pcwinner=pcwinner+1;
+				break;
+
+				
+			}
+		}
+
+		let mywinner=0;
+		let pcwinner=0;
+
+		function game(){
+			let count=0;
+			while (count < 5){
+				let playerOption=playerSelection();
+				if (playerOption =="rock" || playerOption=="paper" || playerOption=="scissor") {
+					count=count+1;
+					let computerOption=computerPlay();
+					playRound(playerOption, computerOption);
+				}
+				else{
+					console.log("error");
+				}
+			}
+
+		}
+
+		game();
+		if (mywinner>pcwinner){
+			console.log("You win")
+		}
+		else if(mywinner==pcwinner){
+			console.log("DRAW")
+		}
+		else{
+			console.log("PC win")
+		}
+
+
+
+
+		
+	
+
+
+
+	</script>
+
+
+	<title>Rock Paper Scissors</title>
+</head>
+<body>
+	
+</body>
+</html>
